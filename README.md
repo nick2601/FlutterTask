@@ -144,9 +144,3 @@ Contributions are welcome! To contribute:
    ```
 5. Open a pull request.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Contact
-For inquiries or suggestions, feel free to reach out to:
-📧 youremail@example.com
