@@ -1,121 +1,131 @@
-# FlutterTask
-This is a Flutter application that showcases users, their posts, comments, todos, and albums. The app demonstrates state management using Bloc, a clean architecture approach with dependency injection (GetIt), and API integration using the JSONPlaceholder API.
+# Flutter Task
+A Flutter application that demonstrates user, post, comment, todo, and album management using JSONPlaceholder API. The app is built with Bloc for state management, follows Clean Architecture principles, and supports responsive UI with animations and interactivity.
 
-Features
-User Management
+## Features
+### User Management
+- View a list of users and their details.
+- Dynamically fetch user data from the API.
 
-View users and their details.
-Fetch data dynamically from the API.
-Posts
+### Posts
+- Display posts for a specific user.
+- Navigate to view comments for a specific post.
 
-Display posts for a specific user.
-Navigate to view comments for a specific post.
-Comments
+### Comments
+- Fetch and display comments for a post.
+- Add new comments dynamically with form validation.
 
-Fetch and display comments for a post.
-Add a new comment to a post with validation.
-Todos
+### Todos
+- View and manage a user's todos.
+- Mark todos as completed or uncompleted.
 
-Display and manage a user's todos.
-Mark todos as completed or not completed.
-Albums
+### Albums
+- Fetch and display a user's albums with their photos.
 
-Fetch and display a user's albums with photos.
-Interactive Design
+### Interactive Design
+- Clean and modern UI with hover effects for desktop.
+- Ripple effects and animations for mobile.
+- Gradient backgrounds and color themes.
+- Responsive Design with list and grid layouts for phones and tablets.
 
-Modern and clean UI with gradient backgrounds.
-Hover effects and animations for desktop and web.
-Responsive layouts with grids for tablets and lists for phones.
-Architecture
-The app follows Clean Architecture principles and uses the Bloc Pattern for state management. Here’s a brief breakdown:
+## Architecture
+The app is built following Clean Architecture principles, separating the codebase into three layers:
 
-1. Presentation Layer
-UI: Interactive and responsive screens for users, posts, todos, comments, and albums.
-Bloc: Handles state management using flutter_bloc.
-2. Domain Layer
-Entities: Core business objects like UserEntity, PostEntity, TodoEntity, etc.
-Use Cases: Handles business logic, e.g., fetching data or updating todos.
-3. Data Layer
-Repositories: Acts as an intermediary between the domain and data sources.
-Data Sources: Handles API calls and caching using http and shared_preferences.
-Screenshots
-User List	User Posts	Comments	Todos
-			
-Installation
-Prerequisites
-Flutter: Ensure you have Flutter installed. Follow the Flutter installation guide.
-Dart: Dart SDK comes pre-installed with Flutter.
-Steps
-Clone this repository:
-bash
-Copy
-Edit
-git clone https://github.com/your-repo/flutter-user-management.git
-cd flutter-user-management
-Get dependencies:
-bash
-Copy
-Edit
-flutter pub get
-Run the app:
-bash
-Copy
-Edit
-flutter run
-Folder Structure
-bash
-Copy
-Edit
+1. **Presentation Layer**
+   - UI Components: Screens, widgets, and custom components.
+   - State Management: Managed using flutter_bloc.
+2. **Domain Layer**
+   - Entities: Core business objects like UserEntity, PostEntity, TodoEntity.
+   - Use Cases: Encapsulate application-specific business rules.
+3. **Data Layer**
+   - Repositories: Interfaces for abstracting data sources.
+   - Data Sources: Handle REST API calls and offline caching.
+
+
+
+## Installation
+### Prerequisites
+- **Flutter SDK**: Install the Flutter SDK from the official Flutter website.
+- **Dart**: Dart SDK is included with Flutter.
+- **JSONPlaceholder API**: No setup required. The app uses the free JSONPlaceholder API.
+
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/flutter-user-management.git
+   cd flutter-user-management
+   ```
+2. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
+3. Run the app:
+   ```bash
+   flutter run
+   ```
+
+## Folder Structure
+```plaintext
 lib
 ├── data
 │   ├── datasources    # Remote and local data sources
 │   ├── models         # JSON-to-Dart models
-│   ├── repositories   # Implementation of repository interfaces
+│   ├── repositories   # Repository implementations
 ├── domain
 │   ├── entities       # Core business models (UserEntity, PostEntity, etc.)
-│   ├── repositories   # Repository interfaces
-│   ├── usecases       # Business logic classes
+│   ├── repositories   # Abstract repository interfaces
+│   ├── usecases       # Business logic (e.g., AddCommentUseCase)
 ├── presentation
 │   ├── bloc           # Bloc classes for state management
-│   ├── pages          # UI screens
+│   ├── pages          # UI screens (UsersPage, CommentsPage, etc.)
 │   ├── widgets        # Reusable UI components
-├── di                 # Dependency injection (GetIt)
+├── di                 # Dependency injection setup (GetIt)
 ├── main.dart          # App entry point
-API
-This app uses the JSONPlaceholder API, a free fake API for testing and prototyping.
+```
 
-Endpoints used:
+## API Integration
+This app integrates with the JSONPlaceholder API for dynamic data. Below are the endpoints used:
 
-Users: /users
-Posts: /posts
-Comments: /comments
-Todos: /todos
-Albums: /albums
-Photos: /photos
-Key Packages
-Package	Description
-flutter_bloc	State management using the Bloc Pattern.
-get_it	Dependency injection for clean architecture.
-http	HTTP client for API integration.
-shared_preferences	Local storage for offline caching.
-equatable	Simplifies equality comparison in state.
-Contribution
-Contributions are welcome! Follow these steps to contribute:
+| Endpoint | Description |
+|----------|-------------|
+| /users   | Fetch all users. |
+| /posts   | Fetch posts for a specific user. |
+| /comments| Fetch and add comments on a post. |
+| /todos   | Fetch todos for a specific user. |
+| /albums  | Fetch user albums. |
+| /photos  | Fetch photos in an album. |
 
-Fork the repository.
-Create a new branch:
-bash
-Copy
-Edit
-git checkout -b feature/your-feature
-Commit your changes:
-bash
-Copy
-Edit
-git commit -m "Add new feature"
-Push to the branch:
-bash
-Copy
-Edit
-git push origin feature/your-feature
-Open a pull request.
+## Key Packages
+| Package               | Description |
+|----------------------|-------------|
+| flutter_bloc         | State management using Bloc/Cubit pattern. |
+| get_it               | Dependency injection for clean architecture. |
+| http                 | HTTP client for REST API integration. |
+| shared_preferences    | Offline data caching. |
+| equatable            | Simplifies equality comparison in states. |
+
+## How It Works
+### Users Page
+- Displays a list of users fetched from /users.
+- Tapping a user navigates to their posts page.
+
+### User Posts
+- Displays a list of posts for the selected user (/posts?userId=<id>).
+- Tapping a post navigates to its comments page.
+
+### Comments
+- Displays comments for the selected post (/comments?postId=<id>). 
+- Users can add a comment using the form at the bottom.
+
+### Todos
+- Displays todos for a user (/todos?userId=<id>). 
+- Users can mark todos as complete or incomplete.
+
+### Albums
+- Displays albums for a user (/albums?userId=<id>). 
+- Photos in the album are fetched dynamically.
+
+
+
+
+
+
