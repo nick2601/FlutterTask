@@ -1,4 +1,4 @@
-# Flutter Task
+# Flutter User Management App
 A Flutter application that demonstrates user, post, comment, todo, and album management using JSONPlaceholder API. The app is built with Bloc for state management, follows Clean Architecture principles, and supports responsive UI with animations and interactivity.
 
 ## Features
@@ -40,7 +40,10 @@ The app is built following Clean Architecture principles, separating the codebas
    - Repositories: Interfaces for abstracting data sources.
    - Data Sources: Handle REST API calls and offline caching.
 
-
+## Screenshots
+| User List | User Posts | Comments | Todos |
+|-----------|------------|----------|-------|
+|           |            |          |       |
 
 ## Installation
 ### Prerequisites
@@ -124,8 +127,26 @@ This app integrates with the JSONPlaceholder API for dynamic data. Below are the
 - Displays albums for a user (/albums?userId=<id>). 
 - Photos in the album are fetched dynamically.
 
+## Contribution
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. Open a pull request.
 
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-
-
-
+## Contact
+For inquiries or suggestions, feel free to reach out to:
+📧 youremail@example.com
